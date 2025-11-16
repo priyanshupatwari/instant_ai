@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "./integrations/client";
+import { Analytics } from "@vercel/analytics/next"
+// import ChatMessage from '@/components/ui/ChatMessage';
 
 // Small handler that runs on app load to process OAuth redirect fragments
 // (e.g. #access_token=...) and then clean the URL and navigate to /chatbot.
@@ -82,6 +84,8 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <Analytics />
+      {/* <ChatMessage text={"Hello! I'm Instant AI, your dedicated assistant for crafting exceptional short-form video scripts. I'm genuinely excited to help you bring your video ideas to life! To get started, I need a little more information about your video. The more details you provide, the better I can tailor the script to your vision! Tell me about: * **Core Topic/Subject**: What is your video about? * **Target Platform**: Where will this video be posted? (TikTok, Instagram Reels, YouTube Shorts, etc.) * **Target Audience**: Who are you trying to reach? (age, interests, demographics) * **Desired Length**: Approximately how long should the video be? (15s, 30s, 60s, 90s, or up to 2.5 minutes MAX) * **Tone & Style**: What's the vibe? (Educational, entertaining, humorous, dramatic, inspirational, casual, professional?) * **Key Message/Goal**: What do you want viewers to take away or do after watching? * **Unique Angle**: What makes your video different from others on this topic? * **Visual Style Preferences**: \n\n Any specific ideas for how it should look? (Fast-paced cuts, talking head, B-roll heavy, text overlays?) * **Specific Requirements**: Are there any must-include points, calls-to-action, or things to avoid? Let's create something amazing together!"} /> */}
     </TooltipProvider>
   </QueryClientProvider>
 );
