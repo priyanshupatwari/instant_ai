@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { supabase } from '@/integrations/client';
 import { PaperPlaneRight, SignOut } from '@phosphor-icons/react';
 import { toast } from 'sonner';
+import ChatMessage from '../components/ui/ChatMessage';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -115,7 +116,7 @@ export default function Chatbot() {
                     : 'glass border border-primary/20'
                 }`}
               >
-                <p className="leading-relaxed">{message.content}</p>
+                <ChatMessage text={message.content} />
               </div>
             </div>
           ))}
